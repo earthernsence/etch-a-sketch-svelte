@@ -211,3 +211,7 @@ button:focus {
 .l-colour-selector__selected {
     box-shadow: var(--color-text) 0 0 2px 2px;
 }
+
+a, a:visited {
+    color: var(--color-accent);
+}

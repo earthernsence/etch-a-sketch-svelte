@@ -7,5 +7,7 @@
   </div>
   <div class="o-text o-text__small">
       Made in Svelte.
+      <br>
+      Code, as always, is <a href="https://github.com/earthernsence/etch-a-sketch-svelte">open source</a>.
   </div>
 </div>

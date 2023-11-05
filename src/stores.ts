@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const penColour = writable("black");
+export const penColour = writable("#000000");
 export const dimensions = writable(25);
 export const cleared = writable(0);
 export const currSquares = writable(Math.pow(25, 2));

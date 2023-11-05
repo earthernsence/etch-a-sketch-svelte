@@ -12,7 +12,7 @@
 </script>
 
 <button
-    class="o-pixel o-pixel--selectable"
+    class="o-pixel o-pixel--selectable {colour === $penColour ? "l-colour-selector__selected" : ""}"
     bind:this={el}
     style="background-color:{colour}"
     data-colour={colour}
