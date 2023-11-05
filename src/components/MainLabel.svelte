@@ -5,4 +5,7 @@
   <div class="o-text o-text__medium c-main-subtitle">
       by Jace Royer
   </div>
+  <div class="o-text o-text__small">
+      Made in Svelte.
+  </div>
 </div>

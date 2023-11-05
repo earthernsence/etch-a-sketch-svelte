@@ -6,7 +6,6 @@
 
   // CSS
   import "../styles/styles.css";
-  import "../styles/tooltips.css";
   import "../styles/all.css";
 </script>
 

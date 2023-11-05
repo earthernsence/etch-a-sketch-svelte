@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { dimensions, useEraser, useShading } from "globals";
+  import { dimensions, useEraser, useShading, cleared } from "globals";
 
   function changeDimensions(up: Boolean): void {
     up ? $dimensions++ : $dimensions--;
@@ -39,5 +39,5 @@
   <br>
   <button class="o-primary-btn" id="shading-toggle" on:click="{toggleShading}">Shading: {formatBoolean($useShading)}</button>
   <br>
-  <button class="o-primary-btn" on:click="{() => $dimensions + 1 - 1}">Clear grid</button>
+  <button class="o-primary-btn" on:click="{() => $cleared++}">Clear grid</button>
 </div>
