@@ -6,3 +6,4 @@ export const cleared = writable(0);
 export const currSquares = writable(Math.pow(25, 2));
 export const useEraser = writable(false);
 export const useShading = writable(false);
+export const alert = writable("Alert");

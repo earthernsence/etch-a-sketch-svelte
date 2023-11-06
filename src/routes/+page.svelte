@@ -3,6 +3,7 @@
   import GridSection from "@/GridSection.svelte";
   import MainLabel from "@/MainLabel.svelte";
   import OptionsBox from "@/OptionsBox.svelte";
+  import Alert from "@/Alert.svelte";
 
   // CSS
   import "../styles/styles.css";
@@ -10,6 +11,7 @@
 </script>
 
 <body>
+  <Alert />
   <div>
     <MainLabel />
   </div>
