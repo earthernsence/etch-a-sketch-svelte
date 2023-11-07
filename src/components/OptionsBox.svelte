@@ -2,9 +2,9 @@
   import { alert, dimensions, useEraser, useShading, cleared } from "globals";
 
   function changeDimensions(up: Boolean): void {
-    if ($dimensions + 1 > 50) {
+    if (up && $dimensions + 1 > 50) {
       $alert = "You cannot have a grid size above 50!";
-    } else if ($dimensions - 1 < 1) {
+    } else if (!up && $dimensions - 1 < 1) {
       $alert = "You cannot have a grid size below 1!";
     } else {
       up ? $dimensions++ : $dimensions--;

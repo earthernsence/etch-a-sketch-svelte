@@ -11,7 +11,9 @@
 </script>
 
 <body>
-  <Alert />
+  <div>
+    <Alert />
+  </div>
   <div>
     <MainLabel />
   </div>
