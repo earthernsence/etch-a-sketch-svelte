@@ -29,11 +29,11 @@
       <div class="o-text__medium">Grid Dimensions</div>
       <br>
       <div class="l-dimension-slider">
-          <button class="c-ad-slider__button" on:click="{() => changeDimensions(false)}">
+          <button on:click="{() => changeDimensions(false)}" bind:class={`c-ad-slider__button ${$dimensions === 1 ? "c-ad-slider__button--disabled" : ""}`}>
               <div class="fas fa-minus"></div>
           </button>
           <input class="o-dimension-slider" id="slider" name="dimensions" type="range" min="1" max="50" bind:value={$dimensions} />
-          <button class="c-ad-slider__button" on:click="{() => changeDimensions(true)}">
+          <button on:click="{() => changeDimensions(true)}" bind:class={`c-ad-slider__button ${$dimensions === 50 ? "c-ad-slider__button--disabled" : ""}`}>
               <div class="fas fa-plus"></div>
           </button>
       </div>

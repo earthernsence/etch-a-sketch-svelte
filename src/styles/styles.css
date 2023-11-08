@@ -185,6 +185,17 @@ button:focus {
     cursor: not-allowed;
 }
 
+.c-ad-slider__button--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #a3a3a3;
+    border-color: var(--color-bad);
+}
+
+.c-ad-slider__button--disabled:hover {
+    background-color: var(--color-bad);
+}
+
 .l-dimension-slider {
     display: flex;
     flex-direction: row;
