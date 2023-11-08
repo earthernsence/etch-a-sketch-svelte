@@ -23,13 +23,19 @@
     return value ? "ON" : "OFF";
   }
 
-  function buttonClass(up: Boolean) {
-    if (up) return `c-ad-slider__button ${$dimensions === 50 ? "c-ad-slider__button--disabled" : ""}`;
-    return `c-ad-slider__button ${$dimensions === 1 ? "c-ad-slider__button--disabled" : ""}`
-  }
+  let minusButton: HTMLButtonElement;
+  let plusButton: HTMLButtonElement;
 
-  $: upClass = buttonClass(true);
-  $: downClass = buttonClass(false);
+  $: {
+    if ($dimensions === 50) {
+      plusButton.classList.add("c-ad-slider__button--disabled");
+    } else if ($dimensions === 1) {
+      minusButton.classList.add("c-ad-slider__button--disabled");
+    } else {
+      minusButton.classList.remove("c-ad-slider__button--disabled");
+      plusButton.classList.remove("c-ad-slider__button--disabled");
+    }
+  }
 </script>
 
 <div class="c-options-box">
@@ -37,11 +43,11 @@
       <div class="o-text__medium">Grid Dimensions</div>
       <br>
       <div class="l-dimension-slider">
-          <button on:click="{() => changeDimensions(false)}" class={downClass}>
+          <button on:click="{() => changeDimensions(false)}" class="c-ad-slider__button" bind:this={minusButton}>
               <div class="fas fa-minus"></div>
           </button>
           <input class="o-dimension-slider" id="slider" name="dimensions" type="range" min="1" max="50" bind:value={$dimensions} />
-          <button on:click="{() => changeDimensions(true)}" class={upClass}>
+          <button on:click="{() => changeDimensions(true)}" class="c-ad-slider__button" bind:this={plusButton}>
               <div class="fas fa-plus"></div>
           </button>
       </div>
