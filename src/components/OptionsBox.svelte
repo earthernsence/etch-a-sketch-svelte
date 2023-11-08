@@ -22,6 +22,11 @@
   function formatBoolean(value: Boolean): string {
     return value ? "ON" : "OFF";
   }
+
+  function buttonClass(up: Boolean) {
+    if (up) return `c-ad-slider__button ${$dimensions === 50 ? "c-ad-slider__button--disabled" : ""}`;
+    return `c-ad-slider__button ${$dimensions === 1 ? "c-ad-slider__button--disabled" : ""}`
+  }
 </script>
 
 <div class="c-options-box">
@@ -29,11 +34,11 @@
       <div class="o-text__medium">Grid Dimensions</div>
       <br>
       <div class="l-dimension-slider">
-          <button on:click="{() => changeDimensions(false)}" bind:class={`c-ad-slider__button ${$dimensions === 1 ? "c-ad-slider__button--disabled" : ""}`}>
+          <button on:click="{() => changeDimensions(false)}" class={buttonClass(false)}>
               <div class="fas fa-minus"></div>
           </button>
           <input class="o-dimension-slider" id="slider" name="dimensions" type="range" min="1" max="50" bind:value={$dimensions} />
-          <button on:click="{() => changeDimensions(true)}" bind:class={`c-ad-slider__button ${$dimensions === 50 ? "c-ad-slider__button--disabled" : ""}`}>
+          <button on:click="{() => changeDimensions(true)}" class={buttonClass(true)}>
               <div class="fas fa-plus"></div>
           </button>
       </div>
