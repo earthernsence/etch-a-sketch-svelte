@@ -30,9 +30,11 @@
     const y = dateObj.getFullYear();
     const m = dateObj.getMonth() + 1;
     const d = dateObj.getDate();
-    DomToImage.toBlob($grid).then((blob: Blob) => {
-      saveAs(blob, `etchasketch-image-${y}-${m}-${d}.png`);
-    });
+    if (document) {
+      DomToImage.toBlob($grid).then((blob: Blob) => {
+        saveAs(blob, `etchasketch-image-${y}-${m}-${d}.png`);
+      });
+    }
   }
 
   let minusButton: HTMLButtonElement;
