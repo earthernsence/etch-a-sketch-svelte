@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { alert, dimensions, useEraser, useShading, cleared } from "globals";
+  import { alert, dimensions, useEraser, useShading, cleared, grid } from "globals";
+  import DomToImage from "dom-to-image";
+  import { saveAs } from "file-saver";
 
   function changeDimensions(up: Boolean): void {
     if (up && $dimensions + 1 > 50) {
@@ -23,6 +25,16 @@
     return value ? "ON" : "OFF";
   }
 
+  function downloadImage() {
+    const dateObj = new Date();
+    const y = dateObj.getFullYear();
+    const m = dateObj.getMonth() + 1;
+    const d = dateObj.getDate();
+    DomToImage.toBlob($grid).then((blob: Blob) => {
+      saveAs(blob, `etchasketch-image-${y}-${m}-${d}.png`);
+    });
+  }
+
   let minusButton: HTMLButtonElement;
   let plusButton: HTMLButtonElement;
 
@@ -32,8 +44,8 @@
     } else if ($dimensions === 1) {
       minusButton.classList.add("c-ad-slider__button--disabled");
     } else {
-      minusButton.classList.remove("c-ad-slider__button--disabled");
-      plusButton.classList.remove("c-ad-slider__button--disabled");
+      if (minusButton) minusButton.classList.remove("c-ad-slider__button--disabled");
+      if (plusButton) plusButton.classList.remove("c-ad-slider__button--disabled");
     }
   }
 </script>
@@ -46,7 +58,7 @@
           <button on:click="{() => changeDimensions(false)}" class="c-ad-slider__button" bind:this={minusButton}>
               <div class="fas fa-minus"></div>
           </button>
-          <input class="o-dimension-slider" id="slider" name="dimensions" type="range" min="1" max="50" bind:value={$dimensions} />
+          <input class="o-dimension-slider c-ad-slider__bg" id="slider" name="dimensions" type="range" min="1" max="50" bind:value={$dimensions} />
           <button on:click="{() => changeDimensions(true)}" class="c-ad-slider__button" bind:this={plusButton}>
               <div class="fas fa-plus"></div>
           </button>
@@ -60,4 +72,6 @@
   <button class="o-primary-btn" id="shading-toggle" on:click="{toggleShading}">Shading: {formatBoolean($useShading)}</button>
   <br>
   <button class="o-primary-btn" on:click="{() => $cleared++}">Clear grid</button>
+  <br>
+  <button class="o-primary-btn" on:click="{downloadImage}">Download image</button>
 </div>

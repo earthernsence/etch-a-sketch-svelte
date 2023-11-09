@@ -60,6 +60,8 @@ body {
     --color-good-dark: #127a20;
     --color-good-paused: #e3e638;
     --color-bad: #b84b5f;
+
+    --color-slider-blue: #0075ff;
 }
 
 @font-face {
@@ -200,6 +202,22 @@ button:focus {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
+    will-change: width;
+}
+
+.c-ad-slider__bg {
+    background-color: #cccccc;
+    border-radius: var(--var-border-radius, 1.5rem);
+}
+
+.l-ad-slider__bg::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .o-grid-section {

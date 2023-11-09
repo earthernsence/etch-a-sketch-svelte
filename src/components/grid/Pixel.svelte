@@ -26,7 +26,6 @@
       el.style.opacity = el.dataset.shading;
     }
   }
-
   
 </script>
 
