@@ -2,6 +2,7 @@
   import { alert, dimensions, useEraser, useShading, cleared, grid } from "globals";
   import DomToImage from "dom-to-image";
   import { saveAs } from "file-saver";
+  import { onMount } from "svelte";
 
   function changeDimensions(up: Boolean): void {
     if (up && $dimensions + 1 > 50) {
@@ -25,15 +26,20 @@
     return value ? "ON" : "OFF";
   }
 
+  let isMounted = false;
+  onMount(() => isMounted = true);
+
   function downloadImage() {
-    const dateObj = new Date();
-    const y = dateObj.getFullYear();
-    const m = dateObj.getMonth() + 1;
-    const d = dateObj.getDate();
-    if (document) {
-      DomToImage.toBlob($grid).then((blob: Blob) => {
-        saveAs(blob, `etchasketch-image-${y}-${m}-${d}.png`);
-      });
+    if (isMounted) {
+      const dateObj = new Date();
+      const y = dateObj.getFullYear();
+      const m = dateObj.getMonth() + 1;
+      const d = dateObj.getDate();
+      if (document) {
+        DomToImage.toBlob($grid).then((blob: Blob) => {
+          saveAs(blob, `etchasketch-image-${y}-${m}-${d}.png`);
+        });
+      }
     }
   }
 
