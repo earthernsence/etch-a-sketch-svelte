@@ -3,5 +3,5 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	base: "/etch-a-sketch-svelte/"
+	base: '/etch-a-sketch-svelte/'
 });

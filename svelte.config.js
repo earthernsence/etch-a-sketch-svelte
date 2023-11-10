@@ -10,12 +10,12 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			"@": "src/components",
-			"globals": "src/stores.ts",
+			'@': 'src/components',
+			globals: 'src/stores.ts'
 		},
 		paths: {
-			base: process.env.NODE_ENV === "production" ? "/etch-a-sketch-svelte" : ""
-		},
+			base: process.env.NODE_ENV === 'production' ? '/etch-a-sketch-svelte' : ''
+		}
 	}
 };
 
