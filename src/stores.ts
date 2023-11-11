@@ -1,3 +1,4 @@
+import { browser } from "$app/environment"
 import { writable } from "svelte/store";
 
 export const penColour = writable("#000000");
@@ -7,4 +8,4 @@ export const currSquares = writable(Math.pow(25, 2));
 export const useEraser = writable(false);
 export const useShading = writable(false);
 export const alert = writable("");
-export const grid = writable(document.createElement("div"));
+export const grid = writable(browser ? document.createElement("div") : null);
